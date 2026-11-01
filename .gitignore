@@ -1,0 +1,17 @@
+# Raw local memories and their source paths must stay on the original machine.
+.memory-import/
+.memory-export/
+.codex/
+.claude/
+.env
+.env.*
+!.env.example
+auth.json
+credentials.json
+*.sqlite
+*.sqlite3
+*.db
+*.jsonl
+__pycache__/
+*.py[cod]
+.DS_Store

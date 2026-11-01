@@ -1,0 +1,11 @@
+# 项目事实
+
+- 目标：把本地 Codex 中可复用的项目知识转成云端 Git 仓库中的标准文本，
+  让不同账号、不同 AI 在获得仓库访问权限后继续使用。
+- 原始目标仓库：`https://github.com/YPXA/CODEX-`。
+- 技术选择：Markdown + AGENTS.md + Git；Python 3.10+ 标准库迁移工具。
+- 工具入口：Codex 使用 `AGENTS.md`；Claude Code 和 Gemini CLI 使用各自
+  的入口文件；Cursor、Copilot 使用仓库规则；其他 AI 可读 `CONTEXT.md`。
+- 这套机制保存显式写入文件的知识，不迁移模型内部状态、账号登录或聊天
+  列表，也不会自动让没有仓库访问能力的 AI 获取记忆。
+- 初次部署环境只能访问云端工作区；原电脑上的旧 Codex 记忆尚未读取。
