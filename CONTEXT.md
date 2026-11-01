@@ -126,7 +126,7 @@ For PDF-only math or scientific documents, read skills/latex-pdf-workflow/SKILL.
 
 ## 验证
 - 首批云端LaTeX演示已成功编译并上传PDF，Actions运行41268655042；共享记忆工作流亦成功。
-- 本批进一步修正模板浮动表分页及数学粗体回退，并补充选图知识，提交后检查对应Actions。
+- 最终批次d4b0853730214634be4c79955b6e3f30c64e4ee5也已通过云端LaTeX编译与共享记忆校验，PDF工件已上传。LaTeX运行：https://github.com/YPXA/CODEX-/actions/runs/41269654259 。本地两种字体共4页已实际渲染核对，最终日志未发现缺字、未定义字体/引用或Overfull。
 - 本地记忆工具运行21项测试，18项通过、3项因Windows平台条件跳过；共享导出一致性检查通过。
 
 ## 授权与范围
