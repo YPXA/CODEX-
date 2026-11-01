@@ -1,0 +1,45 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{report-style}[2026/11/01 Chinese report typography]
+\RequirePackage{fontspec}
+\RequirePackage{amsmath}
+\RequirePackage{unicode-math}
+\RequirePackage{geometry}
+\RequirePackage{booktabs}
+\RequirePackage{array}
+\RequirePackage{graphicx}
+\RequirePackage{caption}
+\RequirePackage[hidelinks,unicode]{hyperref}
+\geometry{a4paper,left=20mm,right=20mm,top=22mm,bottom=22mm}
+\newif\ifportablefonts
+\portablefontsfalse
+\InputIfFileExists{font-profile.tex}{}{}
+\ifportablefonts
+  \setmainfont{texgyretermes-regular.otf}[
+    BoldFont=texgyretermes-bold.otf,
+    ItalicFont=texgyretermes-italic.otf,
+    BoldItalicFont=texgyretermes-bolditalic.otf]
+  \setsansfont{texgyretermes-regular.otf}[BoldFont=texgyretermes-bold.otf]
+  \setCJKmainfont{FandolSong-Regular.otf}[BoldFont=FandolSong-Bold.otf]
+  \setCJKsansfont{FandolHei-Regular.otf}[BoldFont=FandolHei-Bold.otf]
+  \setmathfont{texgyretermes-math.otf}
+\else
+  \setmainfont{Times New Roman}
+  \setsansfont{Times New Roman}
+  \setCJKmainfont{SimSun}[AutoFakeBold=2]
+  \setCJKsansfont{SimHei}[AutoFakeBold=2]
+  \setmathfont{Cambria Math}
+\fi
+\makeatletter
+\renewcommand\normalsize{\@setfontsize\normalsize{10.5bp}{16.5bp}}
+\makeatother
+\AtBeginDocument{\normalsize}
+\ctexset{
+ section={format=\sffamily\bfseries\fontsize{18bp}{26bp}\selectfont},
+ subsection={format=\sffamily\bfseries\fontsize{13bp}{20bp}\selectfont},
+ subsubsection={format=\sffamily\bfseries\fontsize{10.5bp}{16bp}\selectfont}
+}
+\DeclareCaptionFont{reportcaption}{\sffamily\bfseries\fontsize{8.5bp}{13bp}\selectfont}
+\captionsetup{font=reportcaption,labelfont=reportcaption}
+\newenvironment{reporttable}
+ {\begin{table}[htbp]\centering\fontsize{8.5bp}{12.5bp}\selectfont}
+ {\end{table}}

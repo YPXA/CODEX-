@@ -58,6 +58,9 @@ databases, full transcripts, or an entire `.codex` directory into this repositor
 Secret detection is a limited aid; it cannot determine whether prose is private.
 For private memories, use a private Git repository with appropriate access.
 
+## LaTeX PDF authoring
+For PDF-only math or scientific documents, read skills/latex-pdf-workflow/SKILL.md and preserve an existing requested template. The workflow uses actual math typesetting and distinguishes native from portable fonts.
+
 ---
 
 ## Source: memory/README.md
@@ -82,6 +85,8 @@ For private memories, use a private Git repository with appropriate access.
 也不会进入单文件导出。只有显式整理、检查并提升到 `memory/imported/`
 的内容会随 Git 同步。公开仓库的所有历史提交都可能被任何人读取。
 
+本次新增：[LaTeX PDF偏好](imported/latex-pdf-preferences.md)，实现见 [LaTeX工作流](../docs/latex-workflow.md)。
+
 ---
 
 ## Source: memory/project.md
@@ -98,6 +103,8 @@ For private memories, use a private Git repository with appropriate access.
   列表，也不会自动让没有仓库访问能力的 AI 获取记忆。
 - 初次部署环境只能访问云端工作区；原电脑上的旧 Codex 记忆尚未读取。
 
+- 2026-11-01：已选择性同步通用LaTeX技能与去个人信息的PDF偏好，包含两种字体配置和Git云端编译示例；不是完整历史记忆迁移。
+
 ---
 
 ## Source: memory/current.md
@@ -106,31 +113,23 @@ For private memories, use a private Git repository with appropriate access.
 
 更新日期：2026-11-01（Asia/Shanghai）。
 
-## 已准备
+## 已核实进展
+- 原共享记忆工具、跨AI入口和隔离导入机制继续保留。
+- 本次已选择性整理LaTeX PDF偏好、通用技能、中文公式模板及GitHub Actions示例。
+- 本地XeLaTeX与latexmk使用现有TeX Live；实际报告为2026版本。
+- 本机指定字体和开源字体两套样例均已真实编译。数学公式使用原生LaTeX数学排版。
+- 本地工具和验证工程放在D盘；机器专属配置未进入仓库。
 
-- 共享记忆目录、各 AI 的入口和单文件交接工具。
-- 本地发现、隔离导入、检查后提升记忆的命令。
-- 自动校验及覆盖隐私边界、重复导入、路径处理的测试。
+## 同步边界
+用户明确同意公开同步通用技能和去个人信息的LaTeX偏好。未导入完整历史记忆、原始对话、私有研究材料或系统字体。
 
-## 验证
-
-2026-11-01：本地 21 项测试通过；共享记忆、各 AI 入口和单文件导出
-一致性检查通过。当前云环境的常见 Codex Markdown 记忆位置均未发现
-旧文件。客户端入口已按官方文档配置，未逐一启动外部 AI 客户端测试。
-
-## 尚未完成的资料迁移
-
-原电脑上的旧记忆尚未导入。用户确认资料在正在使用的本地电脑中；
-当前执行环境是云端，未挂载该电脑的 Codex 记忆目录。
-不要将这个仓库的工具部署视为旧记忆已经迁移。
+## 验证与未完成事项
+- 本地两种字体配置编译已通过；最终页面视觉检查及云端Actions状态将在本次交付前核实。
+- 正在按用户追加要求整理通用Python与Origin选图记忆；原论文图片和项目数值不作公开导入。
+- 其余历史记忆仍未整体迁移，不能把本次选择性同步等同于全部迁移。
 
 ## 下一步
-
-在有旧记忆的电脑上克隆本仓库，执行
-`python scripts/memory.py import`。若未发现文件，用 `discover` 查看已检查
-的位置，并通过显式路径导入实际 Markdown 文件。检查暂存文件、删除不宜
-共享的信息后，用 `promote` 提升，更新本文件并执行 `export`、`check`，
-最后提交和推送。具体步骤见 `docs/migration.md`。
+按当前用户任务读取相关技能与记忆；若要迁移其他材料，先明确范围并检查公开适用性。无需再次部署编译器。
 
 ---
 
@@ -156,6 +155,9 @@ For private memories, use a private Git repository with appropriate access.
 本地数据库不在迁移范围内。共享内容由用户检查后选择，敏感知识
 应存放在另一个有访问控制的私有仓库。
 
+## 2026-11-01：PDF优先使用真实LaTeX，公开同步范围保持选择性
+公式按数学结构排版并实际渲染核对。复用本机编译器；本机指定字体与云端开源字体单独标识。用户明确同意公开通用技能与去个人信息偏好，不导入完整本地记忆或系统字体。
+
 ---
 
 ## Source: memory/imported/README.md
@@ -174,3 +176,22 @@ python scripts/memory.py check
 
 `promote` 只复制指定文件，不执行 Git 提交或上传。新笔记会自动进入
 下一次单文件导出。导入完成后请更新本说明与 `memory/current.md`。
+
+---
+
+## Source: memory/imported/latex-pdf-preferences.md
+
+# LaTeX PDF workflow preferences
+Source: explicit user instructions and real local validation, 2026-11-01.
+
+- For PDF-only mathematical or scientific documents, prefer real LaTeX typesetting and an installed compiler.
+- New Windows authoring projects and persistent tooling should live on the D drive unless a task explicitly specifies another destination.
+- Keep an editable source project even when the requested delivery is PDF only.
+- Follow the requested Chinese report font hierarchy and use actual equation layout, including proper fractions, scripts, variable styles and right-aligned equation numbers.
+- Do not substitute manually positioned symbols for a formula or declare success from font-name checks alone.
+- Preserve accepted files and visually inspect every final PDF page.
+- Local native typography uses named Windows fonts; open-font cloud builds are a separate profile and must be identified honestly.
+- Git collaboration uses source files and build artifacts. A public repository contains only reviewed generic skills and anonymized preferences.
+- Deployment of a workflow does not imply that all historical memories were migrated.
+
+The repository's skills/latex-pdf-workflow and examples/chinese-report contain the reusable implementation.

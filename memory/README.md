@@ -17,3 +17,5 @@
 本地导入的原文位于 Git 忽略的 `.memory-import/`；它不属于共享记忆，
 也不会进入单文件导出。只有显式整理、检查并提升到 `memory/imported/`
 的内容会随 Git 同步。公开仓库的所有历史提交都可能被任何人读取。
+
+本次新增：[LaTeX PDF偏好](imported/latex-pdf-preferences.md)，实现见 [LaTeX工作流](../docs/latex-workflow.md)。

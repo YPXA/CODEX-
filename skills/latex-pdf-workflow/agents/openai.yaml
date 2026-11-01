@@ -1,0 +1,6 @@
+interface:
+  display_name: "LaTeX PDF 排版与协作"
+  short_description: "使用本机编译器制作中文公式PDF，并准备Git云端编译与队友协作"
+  default_prompt: "Use $latex-pdf-workflow to create a PDF with correctly typeset equations using the installed LaTeX compiler."
+policy:
+  allow_implicit_invocation: true

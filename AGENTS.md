@@ -45,3 +45,6 @@ local and is excluded from exports. Never copy authentication, configuration,
 databases, full transcripts, or an entire `.codex` directory into this repository.
 Secret detection is a limited aid; it cannot determine whether prose is private.
 For private memories, use a private Git repository with appropriate access.
+
+## LaTeX PDF authoring
+For PDF-only math or scientific documents, read skills/latex-pdf-workflow/SKILL.md and preserve an existing requested template. The workflow uses actual math typesetting and distinguishes native from portable fonts.

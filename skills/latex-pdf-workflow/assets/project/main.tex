@@ -1,0 +1,72 @@
+% !TEX program = xelatex
+\documentclass[UTF8,fontset=none,zihao=5]{ctexart}
+\usepackage{report-style}
+\title{\sffamily\bfseries LaTeX 中文报告与公式排版验证}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+\ifportablefonts
+\noindent\textbf{字体配置：开源字体协作版。}本稿使用开源字体，
+用于可移植编译验证，与本机指定字体版的字形和度量不同。
+\else
+\noindent\textbf{字体配置：本机指定字体版。}中文为宋体，西文为
+Times New Roman，数学公式使用 Cambria Math。
+\fi
+
+\section{公式与正文的协调}
+本页为排版验证，不报告实验或工程计算结果。下式使用真实分式、
+上下标和自动编号；变量由数学字体处理，描述性下标使用正体。
+\begin{equation}
+ \frac{\mathrm{d}z(t)}{\mathrm{d}t}
+ =-\frac{\eta_i I(t)}{Q_{\mathrm{eff}}(T,\gamma)}-\phi z(t).
+ \label{eq:state}
+\end{equation}
+式~\eqref{eq:state} 用于检查分数线、算符间距、脚标和编号。
+公式的显示比例需要与相邻正文一起检查。
+
+\subsection{长公式按逻辑换行}
+长表达式采用 aligned 环境，避免把整条公式缩小。
+\begin{equation}
+ \begin{aligned}
+ E_{\mathrm{out}}(t)
+ &=\int_0^t V(\tau)I(\tau)\,\mathrm{d}\tau\\
+ &=\int_0^t U(\tau)I(\tau)\,\mathrm{d}\tau
+   -\int_0^t R(\tau)I^2(\tau)\,\mathrm{d}\tau\\
+ &\quad-\int_0^t v_{\mathrm{p}}(\tau)I(\tau)\,\mathrm{d}\tau .
+ \end{aligned}
+ \label{eq:integral}
+\end{equation}
+此处仅演示多行积分表达式的排版，不赋予变量任何项目测量值。
+
+\subsubsection{矩阵与定界符}
+\begin{equation}
+ \boldsymbol{x}=
+ \begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix},
+ \qquad
+ \boldsymbol{\Sigma}=
+ \begin{bmatrix}
+ \sigma_1^2 & 0 & 0\\
+ 0 & \sigma_2^2 & 0\\
+ 0 & 0 & \sigma_3^2
+ \end{bmatrix}.
+\end{equation}
+
+\section{三线表与协作}
+\begin{reporttable}
+\caption{排版检查项目}
+\begin{tabular}{p{0.22\linewidth}p{0.61\linewidth}}
+\toprule
+项目 & 检查内容\\
+\midrule
+公式 & 分式、上下标、积分号、矩阵及编号的实际可读性\\
+正文 & 中文、英文和数字的字体与字号\\
+表格 & 顶线、表头下线、底线；白底与无内部网格\\
+版本 & 保留源文件、编译日志和使用的字体配置\\
+\bottomrule
+\end{tabular}
+\end{reporttable}
+
+提交到 Git 的内容为源文件、图件、文献与样式。编译产物、临时文件、
+字体配置文件和机器专属设置保留在构建目录或本地。
+\end{document}
