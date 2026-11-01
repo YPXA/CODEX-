@@ -19,3 +19,5 @@
 的内容会随 Git 同步。公开仓库的所有历史提交都可能被任何人读取。
 
 本次新增：[LaTeX PDF偏好](imported/latex-pdf-preferences.md)，实现见 [LaTeX工作流](../docs/latex-workflow.md)。
+
+绘图知识：[Python选图](imported/python-plot-selection.md)、[Origin选图](imported/origin-plot-selection.md)。原图和带身份的案例索引保留本地；公开文档只含通用规则。

@@ -23,3 +23,5 @@ At the intended print size check fraction-bar length, operator spacing, script p
 The native profile requires the named Windows fonts and fails if absent. It does not silently substitute.
 
 The portable profile uses Fandol, TeX Gyre Termes and TeX Gyre Termes Math from TeX Live. Its metrics and appearance differ; do not claim it matches native typography exactly. Never commit proprietary system font files.
+
+With unicode-math, use its native symbol commands such as \symbf and \symbfit for bold math symbols, rather than triggering a missing legacy bold font shape. Inspect the log for substituted font shapes.

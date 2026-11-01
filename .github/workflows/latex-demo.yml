@@ -1,7 +1,13 @@
 name: LaTeX demo PDF
 on:
   push:
+    paths:
+      - 'examples/chinese-report/**'
+      - '.github/workflows/latex-demo.yml'
   pull_request:
+    paths:
+      - 'examples/chinese-report/**'
+      - '.github/workflows/latex-demo.yml'
   workflow_dispatch:
 permissions:
   contents: read

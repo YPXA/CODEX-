@@ -87,6 +87,8 @@ For PDF-only math or scientific documents, read skills/latex-pdf-workflow/SKILL.
 
 本次新增：[LaTeX PDF偏好](imported/latex-pdf-preferences.md)，实现见 [LaTeX工作流](../docs/latex-workflow.md)。
 
+绘图知识：[Python选图](imported/python-plot-selection.md)、[Origin选图](imported/origin-plot-selection.md)。原图和带身份的案例索引保留本地；公开文档只含通用规则。
+
 ---
 
 ## Source: memory/project.md
@@ -105,6 +107,8 @@ For PDF-only math or scientific documents, read skills/latex-pdf-workflow/SKILL.
 
 - 2026-11-01：已选择性同步通用LaTeX技能与去个人信息的PDF偏好，包含两种字体配置和Git云端编译示例；不是完整历史记忆迁移。
 
+- 2026-11-01：新增通用Python/Origin选图知识，包含图型、用途、数据结构及不同实现方式；未公开原图和原结果值。
+
 ---
 
 ## Source: memory/current.md
@@ -113,23 +117,24 @@ For PDF-only math or scientific documents, read skills/latex-pdf-workflow/SKILL.
 
 更新日期：2026-11-01（Asia/Shanghai）。
 
-## 已核实进展
-- 原共享记忆工具、跨AI入口和隔离导入机制继续保留。
-- 本次已选择性整理LaTeX PDF偏好、通用技能、中文公式模板及GitHub Actions示例。
-- 本地XeLaTeX与latexmk使用现有TeX Live；实际报告为2026版本。
-- 本机指定字体和开源字体两套样例均已真实编译。数学公式使用原生LaTeX数学排版。
-- 本地工具和验证工程放在D盘；机器专属配置未进入仓库。
+## 已完成
+- 保留原共享记忆工具、跨AI入口及隔离导入机制。
+- 新增通用LaTeX PDF技能、中文公式模板、项目创建与编译脚本。
+- 本地复用实际TeX Live 2026的XeLaTeX和latexmk，两种字体配置均真实编译成功。
+- 原生字体与云端开源字体分开；分式、上下标、矩阵、分行和编号由LaTeX数学引擎处理。
+- 新增Python和Origin两份通用选图记忆及详细数据结构文档，见memory/imported和docs/plotting。
 
-## 同步边界
-用户明确同意公开同步通用技能和去个人信息的LaTeX偏好。未导入完整历史记忆、原始对话、私有研究材料或系统字体。
+## 验证
+- 首批云端LaTeX演示已成功编译并上传PDF，Actions运行41268655042；共享记忆工作流亦成功。
+- 本批进一步修正模板浮动表分页及数学粗体回退，并补充选图知识，提交后检查对应Actions。
+- 本地记忆工具运行21项测试，18项通过、3项因Windows平台条件跳过；共享导出一致性检查通过。
 
-## 验证与未完成事项
-- 本地两种字体配置编译已通过；最终页面视觉检查及云端Actions状态将在本次交付前核实。
-- 正在按用户追加要求整理通用Python与Origin选图记忆；原论文图片和项目数值不作公开导入。
-- 其余历史记忆仍未整体迁移，不能把本次选择性同步等同于全部迁移。
+## 授权与范围
+用户明确同意公开同步通用LaTeX技能、匿名偏好，并另行同意公开去掉原图、身份和结果值的Python/Origin通用选图规则。
+本地原始图件、案例来源索引、论文、机器配置和完整历史记忆均未公开导入。选择性同步不代表完整历史迁移。
 
 ## 下一步
-按当前用户任务读取相关技能与记忆；若要迁移其他材料，先明确范围并检查公开适用性。无需再次部署编译器。
+按具体任务使用技能和选图规则；若需要实际绘图，先取得原始数据与变量含义，再生成图或Origin工程。
 
 ---
 
@@ -157,6 +162,9 @@ For PDF-only math or scientific documents, read skills/latex-pdf-workflow/SKILL.
 
 ## 2026-11-01：PDF优先使用真实LaTeX，公开同步范围保持选择性
 公式按数学结构排版并实际渲染核对。复用本机编译器；本机指定字体与云端开源字体单独标识。用户明确同意公开通用技能与去个人信息偏好，不导入完整本地记忆或系统字体。
+
+## 2026-11-01：选图知识选择性共享
+用户另行明确同意公开去掉原图、身份和结果数值后的Python/Origin通用规则。原案例索引留在本地；图的美观不替代数据和方法证据。
 
 ---
 
@@ -195,3 +203,45 @@ Source: explicit user instructions and real local validation, 2026-11-01.
 - Deployment of a workflow does not imply that all historical memories were migrated.
 
 The repository's skills/latex-pdf-workflow and examples/chinese-report contain the reusable implementation.
+
+---
+
+## Source: memory/imported/origin-plot-selection.md
+
+# Origin scientific plot selection
+Source: explicit user request for a separate Origin plotting memory, 2026-11-01.
+
+Use the same question/data logic as Python, while keeping Origin-specific structure:
+- Designate X/Y and uncertainty columns explicitly; multiple models usually need one X and several Y columns or grouped data.
+- Model intervals given as lower/upper bounds can be filled between curves; bounds are not automatically Y-error magnitudes.
+- Stacked bars require additive, common-unit component columns.
+- Input/response and trajectory/residual panels link their X axes; distinct units need distinct labels.
+- Signed ranking uses a declared zero/baseline; parameter scans preserve their conditions.
+- Heatmaps/contours require XYZ or a coordinate-bearing Z matrix. Document gridding/interpolation.
+- Insets retain full-data context; purely illustrative mechanisms are not data plots.
+- Read the actual Origin session before editing and verify tool capabilities. Do not claim an editable project unless an OPJU with bound data was actually saved.
+
+Detailed worksheet and plot mappings: docs/plotting/origin-selection.md.
+No original paper images, identifying metadata or unverified result values are included.
+
+---
+
+## Source: memory/imported/python-plot-selection.md
+
+# Python scientific plot selection
+Source: explicit user request to retain reusable figure-selection knowledge, 2026-11-01.
+
+Choose by the question and data structure:
+- Ordered x/y dynamics: line; unordered paired observations: scatter.
+- Models or scenarios: comparable multi-lines or small multiples.
+- Prediction/reference comparison: shared-x trajectory and residual panels.
+- Defined lower/upper bounds: estimate line and interval band, with its actual statistical meaning.
+- Additive same-unit components: stacked bars; continuous composition can use stacked area.
+- Endpoint ranking or ablation: horizontal bars with a declared baseline and gain definition.
+- Parameter effects: controlled parameter scans plus signed sensitivity bars.
+- Two inputs and one response: heatmap/contours from a real grid or documented XYZ processing.
+- Different units on one time axis: prefer linked panels; use double-Y only with explicit correspondence.
+- Methods/mechanisms: nodes and edges, not numerical curves.
+
+Save data, transformations, plotting script and figure provenance. Do not infer measurements or confidence intervals from appearance.
+Detailed data schemas and Matplotlib mappings: docs/plotting/python-selection.md.
